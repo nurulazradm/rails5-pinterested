@@ -5,6 +5,9 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
+      <th>
+        Image
+      </th>
       <th>Description</th>
       <th></th>
     </tr>
@@ -13,6 +16,9 @@
   <tbody>
     <% @pins.each do |pin| %>
       <tr>
+        <td>
+          <%= image_tag pin.image.url(:thumb) unless pin.image.blank? %>
+        </td>
         <td><%= pin.description %></td>
         <td><%= link_to 'Show', pin, class: 'label label-info' %>
           <%= link_to 'Edit', edit_pin_path(pin), class: 'label label-info' %>
